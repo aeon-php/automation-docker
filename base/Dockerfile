@@ -1,11 +1,17 @@
-FROM php:7.4.13-cli-alpine
+ARG PHP_VERSION=7.4.13
+ARG BASE_IMAGE_TAG_SUFFIX=cli-alpine
+ARG BASE_IMAGE_TAG=${PHP_VERSION}-${BASE_IMAGE_TAG_SUFFIX}
+
+ARG COMPOSER_VERSION=2.0.8
+
+FROM php:${BASE_IMAGE_TAG}
 MAINTAINER Norbert Orzechowicz <contact@norbert.tech>
 
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
 ENV COMPOSER_HOME /composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_VERSION 2.0.8
+ENV COMPOSER_VERSION ${COMPOSER_VERSION}
 
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
