@@ -20,7 +20,5 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && php -r "unlink('/tmp/composer-setup.php');" \
   && php -r "unlink('/tmp/composer-setup.sig');"
 
-ENV PATH /composer/vendor/bin:$PATH
-
 VOLUME ["/automation"]
 WORKDIR /automation
