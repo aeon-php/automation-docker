@@ -24,5 +24,3 @@ ENV PATH /composer/vendor/bin:$PATH
 
 VOLUME ["/automation"]
 WORKDIR /automation
-
-ENTRYPOINT ["automation"]
