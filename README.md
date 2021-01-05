@@ -4,7 +4,7 @@ Generate changelog for any github project through CLI from Pull Requests Descrip
  
 ## Supported tags
 
-- `latest` [(latest/Dockerfile)](latest/Dockerfile)
+- `aeonphp/automation:latest` 
 
 ### Install
 
