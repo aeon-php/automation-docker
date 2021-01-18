@@ -28,3 +28,8 @@ Display unreleased changes of aeon-php/automation project:
 docker run -t --rm aeonphp/automation changelog:generate aeon-php/automation 
 ```
 
+### Building Image
+
+```bash
+docker build -t aeonphp/automation:latest . --no-cache
+```
