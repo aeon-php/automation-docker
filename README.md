@@ -31,6 +31,8 @@ docker run -t --rm aeonphp/automation changelog:generate aeon-php/automation
 ### Building Image
 
 ```bash
-docker build -t aeonphp/automation:latest . --no-cache --progress=plain --build-arg AEON_AUTOMATION_VERSION=^1.0
-docker build -t aeonphp/automation:1.0.4 . --no-cache --progress=plain --build-arg AEON_AUTOMATION_VERSION=1.0.4
+docker buildx create --name builder --use
+
+docker buildx build -t aeonphp/automation:latest . --push --no-cache --progress=plain --build-arg AEON_AUTOMATION_VERSION=^1.0 --platform=linux/amd64,linux/arm64
+docker buildx build -t aeonphp/automation:1.0.4 . --push --no-cache --progress=plain --build-arg AEON_AUTOMATION_VERSION=1.0.4 --platform=linux/amd64,linux/arm64
 ```
